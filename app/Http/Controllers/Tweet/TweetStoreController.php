@@ -15,6 +15,8 @@ class TweetStoreController extends Controller
     {
         $tweet = new Tweet();
 
+
+
         $tweet->user_id = Auth::id(); // Use Auth::id()
         $tweet->content = request('content');
 

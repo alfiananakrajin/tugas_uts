@@ -17,6 +17,18 @@
                     </form>
                 </div>
             </div>
+
+
+
+            <div class="card my-4 bg-white">
+         @foreach ($tweets as $tweet)
+            <div class="card-body">
+                <h2 class="text-x1 font-bold">{{ $tweet->user->name }}</h2>
+                <p>{{ $tweet->content }}</p>
+                <p class="text-end text-xs">{{ $tweet->created_at->diffForHumans()}}</p>
+            </div>
+        @endforeach
+            </div>
             </div>
         </div>
     </div>

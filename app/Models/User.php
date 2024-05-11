@@ -37,11 +37,13 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
+    protected $casts = [
             'email_verified_at' => 'datetime',
-            'password' => 'hashed',
         ];
+
+        public function tweets(): Hasmany
+        {
+            return $this->hasMany(Tweet::class);
+        }
     }
-}
+
