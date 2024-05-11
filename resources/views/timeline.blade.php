@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('timeline') }}
         </h2>
     </x-slot>
 
@@ -23,9 +23,13 @@
             <div class="card my-4 bg-white">
          @foreach ($tweets as $tweet)
             <div class="card-body">
-                <h2 class="text-x1 font-bold">{{ $tweet->user->name }}</h2>
+                <h2 class="text-x1 font-bold">{{ $tweet->user->name ?? '' }}</h2>
                 <p>{{ $tweet->content }}</p>
-                <p class="text-end text-xs">{{ $tweet->created_at->diffForHumans()}}</p>
+                <div class="text-end ">
+                    <a href="{{ route('tweets.edit', $tweet->id)}}"
+                        class="link link-hover text-pink-400">Edit</a>
+                    <span class="text-sm">{{ $tweet->created_at->diffForHumans()}}</span>
+                </div>
             </div>
         @endforeach
             </div>

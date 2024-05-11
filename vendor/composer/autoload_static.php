@@ -616,6 +616,7 @@ class ComposerStaticInitd2e112db0408005c7003ce2dd332e05f
         'App\\Http\\Controllers\\TimelineController' => __DIR__ . '/../..' . '/app/Http/Controllers/TimelineController.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
+        'App\\Models\\Tweet' => __DIR__ . '/../..' . '/app/Models/Tweet.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\View\\Components\\AppLayout' => __DIR__ . '/../..' . '/app/View/Components/AppLayout.php',
