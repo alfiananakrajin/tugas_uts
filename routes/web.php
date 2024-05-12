@@ -2,8 +2,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\tweet\TweetStoreController;
-use App\Http\Controllers\tweet\TweetEditController;
 use App\Http\Controllers\tweet\TweetUpdateController;
+use App\Http\Controllers\tweet\TweetEditController;
+use App\Http\Controllers\tweet\TweetDeleteController;
 use App\Http\Controllers\TimelineController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,6 +16,7 @@ Route::get('/timeline', TimelineController::class)->middleware(['auth', 'verifie
 
 Route::post('tweets', [TweetStoreController::class, '__invoke'])->name('tweets.store');
 Route::get('tweets/{id}/edit', [TweetEditController::class, '__invoke'])->name('tweets.edit');
+Route::delete('/tweets/{tweet}', [TweetDeleteController::class, 'destroy'])->name('tweets.destroy');
 Route::put ('tweets/{id}/edit', [TweetUpdateController::class, '__invoke'])->name('tweets.update');
 
 Route::middleware('auth')->group(function () {

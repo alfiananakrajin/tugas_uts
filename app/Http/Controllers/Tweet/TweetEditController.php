@@ -1,10 +1,13 @@
 <?php
 
+// app/Http/Controllers/Tweet/TweetEditController.php
+
 namespace App\Http\Controllers\Tweet;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Tweet; // Include the Tweet model
+use App\Models\Tweet; // Include the Twee
+use Illuminate\Support\Facades\Auth; // Import the Auth facade
 
 class TweetEditController extends Controller
 {
@@ -21,6 +24,12 @@ class TweetEditController extends Controller
     {
         // Retrieve the tweet with the given ID
         $tweet = Tweet::find($id);
+
+        // Check if the current user is the owner of the tweet
+        if ($tweet->user_id !== Auth::id()) {
+            // Abort with a 401 error if the user is not authorized
+            abort(401);
+        }
 
         // Return the edit view with the tweet object
         return view('tweets.edit', [

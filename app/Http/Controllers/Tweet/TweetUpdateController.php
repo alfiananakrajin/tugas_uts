@@ -27,6 +27,6 @@ class TweetUpdateController extends Controller
         ]);
 
         // Call the back() method on the redirector object to redirect to the previous page
-        return redirect()->route('timeline');
+        return back();
     }
 }
